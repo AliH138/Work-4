@@ -1,0 +1,16 @@
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import javax.swing.JOptionPane;
+
+public class Main {
+    public static void main(String[] args) {
+        String input = JOptionPane.showInputDialog(null, "Please enter the desired Gregorian date in the format YYYY-MM-DD:");
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("YYYY-MM-DD");
+        LocalDate date = LocalDate.parse(input, formatter);
+
+        int dayOfYear = date.getDayOfYear();
+
+        JOptionPane.showMessageDialog(null, "Day of the desired date no " + dayOfYear + "in the year.");
+    }
+}
