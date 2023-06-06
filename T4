@@ -1,0 +1,50 @@
+
+import javax.swing.JOptionPane;
+
+public class Main {
+    public static void main(String[] args) {
+        String countString = JOptionPane.showInputDialog(null, "Please enter the number of grades:");
+        int count = Integer.parseInt(countString);
+
+        int excellentCount = 0;
+        int passCount = 0;
+        int failCount = 0;
+        int sum = 0;
+        int min = Integer.MAX_VALUE;
+        int max = Integer.MIN_VALUE;
+
+        for (int i = 0; i < count; i++) {
+            String gradeString = JOptionPane.showInputDialog(null, "Please enter" + (i+1) + " rate:");
+            int grade = Integer.parseInt(gradeString);
+
+            if (grade >= 90 && grade <= 100) {
+                excellentCount++;
+            } else if (grade >= 60 && grade <= 89) {
+                passCount++;
+            } else {
+                failCount++;
+            }
+
+            sum += grade;
+
+            if (grade < min) {
+                min = grade;
+            }
+
+            if (grade > max) {
+                max = grade;
+            }
+        }
+
+        double average = (double) sum / count;
+
+        String message = "Number of excellent marks: " + excellentCount + "\n" +
+                "Number of passing grades: " + passCount + "\n" +
+                "Number of failed grades: " + failCount + "\n" +
+                "average score: " + average + "\n" +
+                "Highest score: " + max + "\n" +
+                "Lowest score: " + min;
+
+        JOptionPane.showMessageDialog(null, message);
+    }
+}
