@@ -1,0 +1,26 @@
+import java.util.Scanner;
+import java.util.Arrays;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String[] words = new String[4];
+
+        System.out.println("Please enter four words:");
+        for (int i = 0; i < 4; i++) {
+            words[i] = scanner.next();
+        }
+
+        Arrays.sort(words);
+        System.out.println("In alphabetical ascending order:");
+        for (String word : words) {
+            System.out.println(word);
+        }
+
+        Arrays.sort(words);
+        System.out.println("In alphabetical descending order:");
+        for (String word : words) {
+            System.out.println(word);
+        }
+    }
+}
